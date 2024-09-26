@@ -1,88 +1,148 @@
----
-import MainLayout from "../layouts/MainLayout.astro";
-import Button from '../components/Button.astro';
-import Link from '../components/Link.astro';
-import { Image } from 'astro:assets';
-import thumbsup from "../assets/images/thumbsup.png";
----
-<MainLayout title="Titel">
-	<head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Porto - Tailwind Template</title>
-        <link rel="stylesheet" href="assets/css/tailwind.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    </head>
+<!DOCTYPE html>
+<html lang="da">
 
-    <body class="bg-gray-100">
-        
-        <section class="py-10 md:py-16">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+	<link rel="icon" href="/src/assets/images/header-logo.png" type="BB logo">
+	<title>Mathilde Brandts portfolio</title>
+	
+	<style>
+      /* Ændring af pilenes farve */
+	.swiper-button-next::after,
+	.swiper-button-prev::after {
+    color: #6E744C; /* Ændrer pilens farve */
+    font-size: 30px; /* Øg font-størrelsen for at gøre pilene større */
+}
 
-            <div class="container max-w-screen-xl mx-auto px-4">
+	/* Tilpasning af pilens baggrund */
+	.swiper-button-next,
+	.swiper-button-prev {
+    background-color: rgba(0, 0, 0, 0.1); /* Gør knapperne synlige med en let baggrundsfarve */
+    padding: 15px; /* Giver mere plads omkring pilene */
+    border-radius: 50%;
+    width: 50px;  /* Sikrer en fast bredde */
+    height: 50px; /* Sikrer en fast højde */
+}
 
-                <nav class="flex items-center justify-between mb-40">
-                    <img src="/src/assets/images/navbar-logo.png" alt="Logo">
+	/* Ændring af pilenes hover-farve */
+	.swiper-button-next:hover::after,
+	.swiper-button-prev:hover::after {
+    color: #A0A96E; /* Farve ved hover */
+}
 
-                    <button class="px-7 py-3 md:px-9 md:py-4 bg-white font-medium md:font-semibold text-gray-700 text-md rounded-md hover:bg-gray-700 hover:text-white transition ease-linear duration-500">Get my CV</button>
-                </nav>
+  body {
+    overflow-x: hidden;
+	background-color: #EFF0E9;
+}
 
-                <div class="text-center">
-                    <div class="flex justify-center mb-16">
-                        <img src="/src/assets/images/home-img.png" alt="Image">
-                    </div>
+.scroll-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #6E744C;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+    transition: opacity 0.3s ease-in-out;
+}
 
-                    <h6 class="font-medium text-gray-600 text-lg md:text-2xl uppercase mb-8">Mathilde Brandt</h6>
+.scroll-to-top.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
 
-                    <h1 class="font-normal text-gray-900 text-4xl md:text-7xl leading-none mb-8">Senior Backend Developer</h1>
+.scroll-to-top:hover {
+    background-color: #555;
+}
 
-                    <p class="font-normal text-gray-600 text-md md:text-xl mb-16">I have a passion for software. I enjoy creating tools that make life easier for people.</p>
+.scroll-to-top svg {
+    display: block;
+}
 
-                    <a href="#" class="px-7 py-3 md:px-9 md:py-4 font-medium md:font-semibold bg-gray-700 text-gray-50 text-sm rounded-md hover:bg-gray-50 hover:text-gray-700 transition ease-linear duration-500">Hire me</a>
-                </div>
+</style>
+</head>
 
+<section class="py-10 md:py-16">
+    <div class="container max-w-screen-xl mx-auto px-4 relative">
+        <!-- Tekst over den vandrette streg (skjult på små skærme) -->
+        <div class="hidden md:block absolute left-20 top-[-2rem] text-sm font-normal uppercase" style="color: #6E744C;">
+            <span>Detaljeorienteret</span>
+        </div>
+
+        <div class="hidden md:block absolute left-96 top-[-2rem] text-sm font-normal uppercase" style="color: #6E744C;">
+            <span>Nysgerrig</span>
+        </div>
+
+        <!-- CV-knap (skjult på små skærme) -->
+        <div class="hidden md:block absolute right-6 top-[-2.5rem] text-sm font-normal uppercase" style="color: #6E744C;">
+            <button class="px-10 py-1 md:px-20 md:py-2 font-light md:font-light text-white text-md rounded-full transition ease-linear duration-500" style="background-color: #6E744C;" onmouseover="this.style.backgroundColor='#A0A96E'" onmouseout="this.style.backgroundColor='#6E744C'">Se mit CV</button>
+        </div>
+
+        <div class="hidden md:block absolute right-96 top-[-2rem] text-sm font-normal uppercase" style="color: #6E744C;">
+            <span>Engageret</span>
+        </div>
+
+        <!-- Vandrette streger (skjult på små skærme) -->
+        <div class="hidden md:block absolute -left-20 right-[42.5rem] top-3 h-px" style="background-color: #6E744C;"></div>
+        <div class="hidden md:block absolute left-[42.5rem] -right-20 top-3 h-px" style="background-color: #6E744C;"></div>
+
+        <!-- Logo -->
+        <nav class="relative flex items-center justify-center mb-20 md:mb-40">
+            <img class="h-20 w-20 border rounded-full p-2 z-10 -mt-7" style="border-color: #6E744C;" src="/src/assets/images/header-logo.png" alt="Logo">
+        </nav>
+
+        <div class="text-center">
+            <!-- Profilbillede (gøres mindre på små skærme) -->
+			<div class="flex justify-center md:justify-end mb-16 mr-10">
+				<img class="h-48 w-48 md:h-96 md:w-96 -mt-2 rounded-md" src="/src/assets/images/profilbillede.png" alt="Image">
+			</div>
+
+            <!-- Tekstindhold -->
+            <div class="flex justify-center md:justify-start -mt-10 md:-mt-80">
+                <h6 class="font-serif text-white text-lg md:text-2xl uppercase mb-10" style="color: #4d4d4b;">Mathilde Brandt</h6>
             </div>
 
-        </section>
+            <div class="flex justify-center md:justify-start">
+                <h1 class="font-normal text-gray-900 text-3xl md:text-7xl leading-none mb-2 md:mb-12" style="color: #6E744C;">Multimediedesign-</h1>
+            </div>
 
-        <section class="py-10 md:py-16">
+            <div class="flex justify-center md:justify-start">
+                <h1 class="font-normal text-gray-900 text-3xl md:text-7xl leading-none -mt-2 md:-mt-10 mb-4 md:mb-8" style="color: #6E744C;">studerende</h1>
+            </div>
+
+			<div class="flex justify-center md:justify-start text-center md:text-left">
+				<p class="font-normal font-serif text-gray-600 md:text-base sm:text-sm mb-8 md:mb-8 sm:w-full md:w-3/4 lg:w-[50rem]" style="color: #454543;">
+					Jeg brænder for at udvikle brugervenlige digitale løsninger, og værdsætter hele processen – fra research til det færdige, testede produkt. Jeg håber at kunne få endnu mere erfaring hos jer.
+				</p>
+			</div>
+
+            <!-- Connect med mig knap -->
+            <div class="flex justify-center md:justify-start">
+                <a href="https://www.linkedin.com/in/mathilde-brandt-943082159" target="_blank"
+                   class="px-10 py-2 md:px-20 md:py-2 font-light text-white text-md rounded-full transition ease-linear duration-500"
+                   style="background-color: #6E744C;" onmouseover="this.style.backgroundColor='#A0A96E'" onmouseout="this.style.backgroundColor='#6E744C';">Connect med mig</a>
+            </div>
+        </div>
+    </div>
+</section>
+		<section class="py-10 md:py-16">
 
             <div class="container max-w-screen-xl mx-auto px-4">
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-                        <div class="w-20 py-6 flex justify-center bg-gray-100 rounded-md mb-4">
-                            <i data-feather="activity"></i>
-                        </div>
+				<div class="mb-10 lg:mb-0">
+					<h1 class="font-medium text-gray-700 text-3xl md:text-4xl mb-5" style="color: #6E744C;">Om mig</h1>
 
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">High experience</h4>
+					<p class="font-serif text-gray-500 text-xs md:text-base sm:text-sm mb-8 md:mb-8sm:w-full md:w-3/4 lg:w-[50rem]" style="line-height:1.8;">Jeg studerer multimediedesign på KEA og ser frem til at starte på 3. semester med fokus på digitalt design. Gennem studiet har jeg opnået erfaring med at udvikle brugerorienterede webløsninger, arbejde med lo-fi- og hi-fi-prototyper i Figma samt frontend-programmering i HTML, CSS og JavaScript.</p>
+						
+					<p class="font-serif text-gray-500 text-xs md:text-base sm:text-sm mb-8 md:mb-8sm:w-full md:w-3/4 lg:w-[50rem]" style="line-height:1.8;">Jeg arbejder også som studentermedhjælper i marketingafdelingen hos Academic Books, hvor jeg er ansvarlig for sociale medier, nyhedsbreve og grafisk design. Her har jeg lært meget om at arbejde både selvstændigt og i teams.</p>
 
-                        <p class="font-normal text-gray-500 text-md">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                    
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-                        <div class="w-20 py-6 flex justify-center bg-gray-100 rounded-md mb-4">
-                            <i data-feather="codesandbox"></i>
-                        </div>
-
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">Useful sandboxes</h4>
-
-                        <p class="font-normal text-gray-500 text-md">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                    
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-                        <div class="w-20 py-6 flex justify-center bg-gray-100 rounded-md mb-4">
-                            <i data-feather="coffee"></i>
-                        </div>
-
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">Success side projects</h4>
-
-                        <p class="font-normal text-gray-500 text-md">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
+					<p class="font-serif text-gray-500 text-xs md:text-base sm:text-sm mb-8 md:mb-8sm:w-full md:w-3/4 lg:w-[50rem]" style="line-height:1.8;">
+					I min fritid går jeg til Gravity-træning for at holde mig aktiv og få en pause fra skærmen, og jeg har en madklub med mine veninder, hvor vi skiftes til at lave middag. Jeg elsker at lære nyt og har blandt andet deltaget i kurset "Kodning For Kvinder" på IT-Universitetet for at styrke mine kodningsfærdigheder. Mit mål er at videreuddanne mig med en professionsbachelor i webudvikling og specialisere mig i UX-design og programmering, så jeg kan skabe brugervenlige og effektive digitale løsninger.</p>
+				</div>
 
             </div>
 
@@ -93,327 +153,336 @@ import thumbsup from "../assets/images/thumbsup.png";
             <div class="container max-w-screen-xl mx-auto px-4">
 
                 <div class="flex flex-col lg:flex-row justify-between">
-                    <div class="mb-10 lg:mb-0">
-                        <h1 class="font-medium text-gray-700 text-3xl md:text-4xl mb-5">Portfolio</h1>
 
-                        <p class="font-normal text-gray-500 text-xs md:text-base">I have brought here my biggest and favorite works <br> as a professional.</p>
+                    <div class="mb-10 lg:mb-0">
+                        <h1 class="font-medium text-gray-700 text-3xl md:text-4xl mb-5" style="color: #6E744C;">Mine færdigheder</h1>
+						<p class="font-serif text-gray-500 text-xs md:text-base sm:text-sm mb-8 md:mb-8sm:w-full md:w-3/4 lg:w-[25rem]" style="line-height:1.8;">Herunder har jeg fremhævet mine kvalifikationer og rangeret dem alt efter niveau.</p>
                     </div>
 
                     <div class="space-y-24">
+
                         <div class="flex space-x-6">
-                            <h1 class="font-normal text-gray-700 text-3xl md:text-4xl">01</h1>
-
-                            <span class="w-28 h-0.5 bg-gray-300 mt-5"></span>
-
-                            <div>
-                                <h1 class="font-normal text-gray-700 text-3xl md:text-4xl mb-5">Demo API Generator</h1>
-
-                                <p class="font-normal text-gray-500 text-sm md:text-base">A dummy data free and documented API generator to facilitate <br> the process of testing the front-end portion of projects.</p>
-                            </div>
-                        </div>
+							<img src="/src/assets/images/graphic-design.svg" alt="grafisk design ikon" class="w-11 h-11 mt-5" />
+							<span class="w-28 h-0.5 bg-gray-300 mt-5"></span>
+							<div>
+								<h1 class="font-normal text-gray-700 text-3xl md:text-4xl mb-5" style="color: #6E744C;">Grafisk Design</h1>
+								<p class="font-serif text-gray-500 text-xs md:text-base sm:text-sm mb-4 md:mb-8sm:w-full md:w-3/4 lg:w-[30rem]" style="line-height:1.8;">Jeg har erfaring med at udvikle responsive websites ved hjælp af HTML, CSS, JavaScript, Astro og senest Tailwind.</p>
+								<ul class="list-disc list-inside text-gray-500 text-sm md:text-base mt-3">
+									<li>Figma – Grundlæggende</li>
+									<li>Canva– Mellemniveau</li>
+								</ul>
+							</div>
+						</div>
                         
-                        <div class="flex space-x-6">
-                            <h1 class="font-normal text-gray-700 text-3xl md:text-4xl">02</h1>
+						<div class="flex space-x-6">
+							<img src="/src/assets/images/kode_ikon.svg" alt="grafisk design ikon" class="w-11 h-11 mt-5" />
+							<span class="w-28 h-0.5 bg-gray-300 mt-5"></span>
+							<div>
+								<h1 class="font-normal text-gray-700 text-3xl md:text-4xl mb-5" style="color: #6E744C;">Webdesign & Frontend Udvikling</h1>
+								<p class="font-serif text-gray-500 text-xs md:text-base sm:text-sm mb-4 md:mb-8sm:w-full md:w-3/4 lg:w-[30rem]" style="line-height:1.8;">Jeg har erfaring med at udvikle responsive websites ved hjælp af HTML, CSS, JavaScript, Astro og senest Tailwind.</p>
+								<ul class="list-disc list-inside text-gray-500 text-sm md:text-base mt-3">
+									<li>HTML – Grundlæggende</li>
+									<li>CSS – Grundlæggende</li>
+									<li>JavaScript – Nybegynder</li>
+									<li>Astro – Grundlæggende</li>
+									<li>Tailwind – Nybegynder</li>
+								</ul>
+							</div>
+						</div>
 
-                            <span class="w-28 h-0.5 bg-gray-300 mt-5"></span>
+						<div class="flex space-x-6">
+							<img src="/src/assets/images/online-test.svg" alt="UX/UI design ikon" class="w-11 h-11 mt-5" />
+							<span class="w-28 h-0.5 bg-gray-300 mt-5"></span>
+						<div>
+							<h1 class="font-normal text-gray-700 text-3xl md:text-4xl mb-5" style="color: #6E744C;">UX/UI Design</h1>
+							<p class="font-serif text-gray-500 text-xs md:text-base sm:text-sm mb-4 md:mb-8sm:w-full md:w-3/4 lg:w-[30rem]" style="line-height:1.8;">Jeg har erfaring med at udvikle responsive websites ved hjælp af HTML, CSS, JavaScript, Astro og senest Tailwind.</p>
+							<ul class="list-disc list-inside text-gray-500 text-sm md:text-base mt-3">
+								<li>Research</li>
+								<li>Wireframes</li>
+								<li>Prototypes</li>
+								<li>Brugertests</li>
+							</ul>
+						</div>
+					</div>
 
-                            <div>
-                                <h1 class="font-normal text-gray-700 text-3xl md:text-4xl mb-5">Demo API Generator</h1>
-
-                                <p class="font-normal text-gray-500 text-sm md:text-base">A dummy data free and documented API generator to facilitate <br> the process of testing the front-end portion of projects.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex space-x-6">
-                            <h1 class="font-normal text-gray-700 text-3xl md:text-4xl">03</h1>
-
-                            <span class="w-28 h-0.5 bg-gray-300 mt-5"></span>
-
-                            <div>
-                                <h1 class="font-normal text-gray-700 text-3xl md:text-4xl mb-5">Demo API Generator</h1>
-
-                                <p class="font-normal text-gray-500 text-sm md:text-base">A dummy data free and documented API generator to facilitate <br> the process of testing the front-end portion of projects.</p>
-                            </div>
-                        </div>
                     </div>
-                </div>
 
-            </div>
+                </div>
 
         </section>
 
-        <section class="py-10 md:py-16">
+		<section class="py-10 md:py-16">
 
             <div class="container max-w-screen-xl mx-auto px-4">
 
-                <h1 class="font-medium text-gray-700 text-3xl md:text-4xl mb-5">Education</h1>
+                <h1 class="font-medium text-gray-700 text-3xl md:text-4xl mb-5" style="color: #6E744C;">Erfaring & kurser</h1>
 
-                <p class="font-normal text-gray-500 text-xs md:text-base mb-20">Below is a summary of the places I studied</p>
+                <p class="font-serif text-gray-500 text-xs md:text-base sm:text-sm mb-10 md:mb-20 sm:w-full md:w-3/4 lg:w-[40rem]">Herunder finder I en oversigt over mit nuværende studie og arbejdsforhold samt min deltagelse i et kursus.</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">2015 – 2016</h4>
 
-                        <p class="font-normal text-gray-500 text-md mb-4">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
+					<div class="bg-gray-50 px-8 py-10 rounded-md">
+						<div class="flex justify-between items-center mb-4">
+							<div>
+								<h4 class="font-medium text-gray-700 text-lg mb-2" style="color: #6E744C">Multimediedesign, 2023 – 2024</h4>
+								<h6 class="font-serif text-white text-sm md:text-sm" style="color: #454543">Københavns Erhvervsakademi (KEA) </h6>
+							</div>
+						</div>
+						<p class="font-serif text-gray-500 text-sm mb-4">Jeg er i gang med at uddanne mig til multimediedesigner, hvor jeg dykker ned i at skabe visuelt attraktive og interaktive elementer. Her kan jeg forene min passion for design med den digitale verden.</p>
+					</div>
 
-                        <div class="relative">
-                            <h6 class="font-semibold text-gray-500 text-md relative z-10">See the place here</h6>
-                            <span class="w-32 h-1 bg-blue-200 absolute bottom-1 left-0 z-0"></span>
-                        </div>
-                    </div>
+					<div class="bg-gray-50 px-8 py-10 rounded-md">
+						<div class="flex justify-between items-center mb-4">
+							<div>
+								<h4 class="font-medium text-gray-700 text-lg mb-2" style="color: #6E744C">Marketingsmedhjælper, 2023 –</h4>
+								<h6 class="font-serif text-white text-sm md:text-sm" style="color: #454543">Academic Books</h6>
+							</div>
+						</div>
+						<p class="font-serif text-gray-500 text-sm mb-4">Jeg er med til at administrere vores sociale medieplatforme og skabe indholdsrigt indhold både til vores sociale medier og vores hjemmeside, samt at styrke brugeroplevelsen på vores websted. Derudover markedsfører jeg virksomheden gennem oplæg på uddannelsesstederne.</p>
+					</div>
 
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">2015 – 2016</h4>
+					<div class="bg-gray-50 px-8 py-10 rounded-md">
+						<div class="flex justify-between items-center mb-4">
+							<div>
+								<h4 class="font-medium text-gray-700 text-lg mb-2" style="color: #6E744C">Kodning For Kvinder, 2023</h4>
+								<h6 class="font-serif text-white text-sm md:text-sm" style="color: #454543">IT-Universitetet (ITU)</h6>
+							</div>
+						</div>
+						<p class="font-serif text-gray-500 text-sm mb-4">Gennemførte kursus på IT Universitetet i København, der dykkede ned i forskellige aspekter af IT og teknologi. Under vejledning af dygtige softwareudviklingsstuderende udforskede jeg programmering, skabte min egen hjemmeside og arbejdede med robotteknologi. Jeg fik en spændende introduktion til kunstig intelligens og big data, samt udvidede min teknologiske horisont.</p>
+					</div>
 
-                        <p class="font-normal text-gray-500 text-md mb-4">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
-
-                        <div class="relative">
-                            <h6 class="font-semibold text-gray-500 text-md relative z-10">See the place here</h6>
-                            <span class="w-32 h-1 bg-blue-200 absolute bottom-1 left-0 z-0"></span>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">2015 – 2016</h4>
-
-                        <p class="font-normal text-gray-500 text-md mb-4">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
-
-                        <div class="relative">
-                            <h6 class="font-semibold text-gray-500 text-md relative z-10">See the place here</h6>
-                            <span class="w-32 h-1 bg-blue-200 absolute bottom-1 left-0 z-0"></span>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">2015 – 2016</h4>
-
-                        <p class="font-normal text-gray-500 text-md mb-4">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
-
-                        <div class="relative">
-                            <h6 class="font-semibold text-gray-500 text-md relative z-10">See the place here</h6>
-                            <span class="w-32 h-1 bg-blue-200 absolute bottom-1 left-0 z-0"></span>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">2015 – 2016</h4>
-
-                        <p class="font-normal text-gray-500 text-md mb-4">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
-
-                        <div class="relative">
-                            <h6 class="font-semibold text-gray-500 text-md relative z-10">See the place here</h6>
-                            <span class="w-32 h-1 bg-blue-200 absolute bottom-1 left-0 z-0"></span>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-                        <h4 class="font-medium text-gray-700 text-lg mb-4">2015 – 2016</h4>
-
-                        <p class="font-normal text-gray-500 text-md mb-4">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
-
-                        <div class="relative">
-                            <h6 class="font-semibold text-gray-500 text-md relative z-10">See the place here</h6>
-                            <span class="w-32 h-1 bg-blue-200 absolute bottom-1 left-0 z-0"></span>
-                        </div>
                     </div>
                 </div>
-
-            </div>
-
         </section>
 
-        <section class="py-10 md:py-16">
-
-            <div class="container max-w-screen-xl mx-auto px-4">
-
-                <div class="text-center">
-                    <h1 class="font-normal text-gray-300 text-3xl md:text-6xl lg:text-7xl mb-20 md:mb-32 lg:mb-48">Please do not measure your skills in <br> percentages!</h1>
-
-                    <p class="font-medium text-gray-700 text-xs md:text-base">In my many years of experience, I use @laravel for backend projects and @vuejs for <br> front-end projects. I’m an avid programmer, so I create designs based on the <br> weekend @figmadesign.</p>
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="py-10 md:py-16">
-
-            <div class="container max-w-screen-xl mx-auto px-4">
-
-                <h1 class="font-medium text-gray-700 text-3xl md:text-4xl mb-5">Experience</h1>
-
-                <p class="font-normal text-gray-500 text-xs md:text-base mb-20">Below is a summary of the places I studied</p>
-
-                <div class="flex flex-col lg:flex-row justify-between">
-                    <div class="space-y-8 md:space-y-16 mb-16 md:mb-0">
-                        <h6 class="font-medium text-gray-400 text-base uppercase">Company</h6>
-
-                        <p class="font-semibold text-gray-600 text-base">Massa Fames <span class="font-normal text-gray-300">/ New York</span></p>
-
-                        <p class="font-semibold text-gray-600 text-base">Massa Fames <span class="font-normal text-gray-300">/ New York</span></p>
-
-                        <p class="font-semibold text-gray-600 text-base">Massa Fames <span class="font-normal text-gray-300">/ New York</span></p>
-
-                        <p class="font-semibold text-gray-600 text-base">Massa Fames <span class="font-normal text-gray-300">/ New York</span></p>
-
-                        <p class="font-semibold text-gray-600 text-base">Massa Fames <span class="font-normal text-gray-300">/ New York</span></p>
-                    </div>
-
-                    <div class="space-y-8 md:space-y-16 mb-16 md:mb-0">
-                        <h6 class="font-medium text-gray-400 text-base uppercase">Position</h6>
-
-                        <p class="font-normal text-gray-400 text-base">Junior Front-End Developer</p>
-
-                        <p class="font-normal text-gray-400 text-base">Junior Front-End Developer</p>
-
-                        <p class="font-normal text-gray-400 text-base">Junior Front-End Developer</p>
-
-                        <p class="font-normal text-gray-400 text-base">Junior Front-End Developer</p>
-
-                        <p class="font-normal text-gray-400 text-base">Junior Front-End Developer</p>
-                    </div>
-
-                    <div class="space-y-8 md:space-y-16">
-                        <h6 class="font-medium text-gray-400 text-base uppercase">Year</h6>
-
-                        <p class="font-normal text-gray-400 text-base">2016</p>
-
-                        <p class="font-normal text-gray-400 text-base">2016</p>
-
-                        <p class="font-normal text-gray-400 text-base">2016</p>
-
-                        <p class="font-normal text-gray-400 text-base">2016</p>
-
-                        <p class="font-normal text-gray-400 text-base">2016</p>
-                    </div>
-                </div>
-                
-            </div>
-
-        </section>
-
-        <section class="py-10 md:py-16">
-
-            <div class="container max-w-screen-xl mx-auto px-4">
-
-                <h1 class="font-medium text-gray-700 text-3xl md:text-4xl mb-5">Brands</h1>
-
-                <p class="font-normal text-gray-500 text-xs md:text-base mb-10 md:mb-20">Below is a summary of the places I studied</p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                    <img src="assets/image/brand-1.png" alt="Image">
-
-                    <img src="assets/image/brand-2.png" alt="Image">
-
-                    <img src="assets/image/brand-3.png" alt="Image">
-
-                    <img src="assets/image/brand-4.png" alt="Image">
-
-                    <img src="assets/image/brand-5.png" alt="Image">
-
-                    <img src="assets/image/brand-6.png" alt="Image">
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="py-10 md:py-16">
-
-            <div class="container max-w-screen-xl mx-auto px-4">
-
-                <h1 class="font-medium text-gray-700 text-3xl md:text-4xl mb-5">Testimonial</h1>
-
-                <p class="font-normal text-gray-500 text-xs md:text-base mb-10 md:mb-20">Below is a summary of the places I studied</p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-
-                        <p class="font-normal text-gray-500 text-md mb-4">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
-
-                        <h6 class="font-semibold text-gray-500 text-md">Stephan Clark <span class="font-medium text-gray-300 text-sm">- CEO at EarlyBird</span></h6>
-                    </div>
-
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-
-                        <p class="font-normal text-gray-500 text-md mb-4">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
-
-                        <h6 class="font-semibold text-gray-500 text-md">Stephan Clark <span class="font-medium text-gray-300 text-sm">- CEO at EarlyBird</span></h6>
-                    </div>
-
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-
-                        <p class="font-normal text-gray-500 text-md mb-4">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
-
-                        <h6 class="font-semibold text-gray-500 text-md">Stephan Clark <span class="font-medium text-gray-300 text-sm">- CEO at EarlyBird</span></h6>
-                    </div>
-
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-
-                        <p class="font-normal text-gray-500 text-md mb-4">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
-
-                        <h6 class="font-semibold text-gray-500 text-md">Stephan Clark <span class="font-medium text-gray-300 text-sm">- CEO at EarlyBird</span></h6>
-                    </div>
-
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-
-                        <p class="font-normal text-gray-500 text-md mb-4">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
-
-                        <h6 class="font-semibold text-gray-500 text-md">Stephan Clark <span class="font-medium text-gray-300 text-sm">- CEO at EarlyBird</span></h6>
-                    </div>
-
-                    <div class="bg-gray-50 px-8 py-10 rounded-md">
-
-                        <p class="font-normal text-gray-500 text-md mb-4">Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
-
-                        <h6 class="font-semibold text-gray-500 text-md">Stephan Clark <span class="font-medium text-gray-300 text-sm">- CEO at EarlyBird</span></h6>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
-
-        <footer class="py-10 md:py-16 mb-20 md:mb-40 lg::mb-52">
-
-            <div class="container max-w-screen-xl mx-auto px-4">
-
-                <div class="text-center">
-                    <h1 class="font-medium text-gray-700 text-4xl md:text-5xl mb-5">Testimonial</h1>
-
-                    <p class="font-normal text-gray-400 text-md md:text-lg mb-20">I’m not currently taking on new client work but feel free to contact me for any <br> other inquiries.</p>
-
-                    <div class="flex items-center justify-center space-x-8">
-                        <a href="#" class="w-16 h-16 flex items-center justify-center rounded-full hover:bg-gray-200 transition ease-in-out duration-500">
-                            <i data-feather="twitter" class="text-gray-500 hover:text-gray-800 transition ease-in-out duration-500"></i>
-                        </a>
-    
-                        <a href="#" class="w-16 h-16 flex items-center justify-center rounded-full hover:bg-gray-200 transition ease-in-out duration-500">
-                            <i data-feather="dribbble" class="text-gray-500 hover:text-gray-700 transition ease-in-out duration-500"></i>
-                        </a>
-    
-                        <a href="#" class="w-16 h-16 flex items-center justify-center rounded-full hover:bg-gray-200 transition ease-in-out duration-500">
-                            <i data-feather="facebook" class="text-gray-500 hover:text-gray-700 transition ease-in-out duration-500"></i>
-                        </a>
-    
-                        <a href="#" class="w-16 h-16 flex items-center justify-center rounded-full hover:bg-gray-200 transition ease-in-out duration-500">
-                            <i data-feather="codepen" class="text-gray-500 hover:text-gray-700 transition ease-in-out duration-500"></i>
-                        </a>
-    
-                        <a href="#" class="w-16 h-16 flex items-center justify-center rounded-full hover:bg-gray-200 transition ease-in-out duration-500">
-                            <i data-feather="at-sign" class="text-gray-500 hover:text-gray-700 transition ease-in-out duration-500"></i>
-                        </a>
-    
-                        <a href="#" class="w-16 h-16 flex items-center justify-center rounded-full hover:bg-gray-200 transition ease-in-out duration-500">
-                            <i data-feather="instagram" class="text-gray-500 hover:text-gray-700 transition ease-in-out duration-500"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-        </footer>
-
-    </body>
-</html>
-</MainLayout>
+		<section class="py-10 md:py-16">
+			<div class="container max-w-screen-xl mx-auto px-4">
+				<h1 class="font-medium text-gray-700 text-3xl md:text-4xl mb-5" style="color: #6E744C;">Portfolio</h1>
+				<p class="font-serif text-gray-500 text-xs md:text-base sm:text-sm mb-20">Her er et udvalg af mine nyeste webløsninger fra mit studie.</p>
+		
+				<!-- Swiper container -->
+				<div class="swiper-container relative overflow-hidden">
+					<div class="swiper-wrapper">
+		
+						<!-- Digital Cleanup Day -->
+						<div class="swiper-slide bg-gray-50 w-full h-auto flex flex-col sm:flex-row rounded-md overflow-hidden">
+							<a href="https://digitalskraldedaggr4.netlify.app/" target="_blank">
+							<div class="w-full sm:w-2/3 h-56 sm:h-auto overflow-hidden">
+								<img class="h-full w-full object-cover transform transition-transform duration-500 ease-in-out hover:scale-105" src="/src/assets/images/digital_skraldedag.png" alt="Forside af website om Digital Cleaunp Day">
+							</a>
+							</div>
+							<div class="w-full sm:w-1/3 p-4 flex flex-col justify-center">
+								<h2 class="font-medium text-gray-700 text-lg mb-2" style="color: #6E744C;">Digital Cleanup Day</h2>
+								<p class="font-serif text-gray-500 text-sm sm:text-xs mt-2" style="line-height: 2;">Digital Skraldedag er en kampagne, der opfordrer folk til at rydde op i deres digitale affald, som fx gamle filer, emails og inaktive konti, for at reducere energiforbrug. Vi har udviklet en webside, der informerer om problemet, giver tips til oprydning og gør det muligt for brugere at registrere deres bidrag. Løsningen blev udviklet via Astro, Tailwind og Alpine med inspiration fra Digital Cleanup Day's marketingmaterialer. </p>
+								<div class="flex justify-center mt-10">
+									<a href="https://digitalskraldedaggr4.netlify.app/" target="_blank"
+									   class="px-7 py-1 md:px-20 md:py-1 font-light text-md rounded-full border border-[#6E744C] bg-[#EFF0E9] text-[#6E744C] text-center transition-colors duration-300 ease-in-out hover:bg-[#6E744C] hover:text-white">
+									   Se websitet
+									</a>
+								</div>
+							</div>
+						</div>
+		
+						<!-- Per Lunde Jørgensen -->
+						<div class="swiper-slide bg-gray-50 w-full h-auto flex flex-col sm:flex-row rounded-md overflow-hidden">
+							<a href="https://nonsite.netlify.app/" target="_blank">
+							<div class="w-full sm:w-2/3 h-56 sm:h-auto overflow-hidden">
+								<img class="h-full w-full object-cover transform transition-transform duration-500 ease-in-out hover:scale-105" src="/src/assets/images/Per_Lunde.png" alt="Forside af website om kunstner Per Lunde Jørgensen">
+							</a>
+							</div>
+							<div class="w-full sm:w-1/3 p-4 flex flex-col justify-center">
+								<h2 class="font-medium text-gray-700 text-lg" style="color: #6E744C;">Per Lunde Jørgensen</h2>
+								<p class="font-serif text-gray-500 text-sm sm:text-xs mt-2" style="line-height: 2;">Vores eksamensopgave på 2. semester handlede om at redesigne kunstneren Per Lunde Jørgensens portfolio-webside. Målet var at forbedre hans digitale identitet og branding ved at skabe en mere indbydende og interaktiv brugeroplevelse. Vi fokuserede på at bevare hans minimalistiske visuelle stil, samtidig med at vi skabte en digital platform, der kunne styrke hans tilstedeværelse online og øge engagementet med hans kunder.</p>
+								<div class="flex justify-center mt-10">
+									<a href="https://nonsite.netlify.app/" target="_blank"
+									   class="px-7 py-1 md:px-20 md:py-1 font-light text-md rounded-full border border-[#6E744C] bg-[#EFF0E9] text-[#6E744C] text-center transition-colors duration-300 ease-in-out hover:bg-[#6E744C] hover:text-white">
+									   Se websitet
+									</a>
+								</div>
+							</div>
+						</div>
+		
+						<!-- I Tråd Med Verden -->
+						<div class="swiper-slide bg-gray-50 w-full h-auto flex flex-col sm:flex-row rounded-md overflow-hidden">
+							<a href="https://itmv-webfeature.netlify.app/" target="_blank">
+							<div class="w-full sm:w-2/3 h-56 sm:h-auto overflow-hidden">
+								<img class="h-full w-full object-cover transform transition-transform duration-500 ease-in-out hover:scale-105" src="/src/assets/images/ITMV.png" alt="Forside af website om ITMV">
+							</a>
+							</div>
+							<div class="w-full sm:w-1/3 p-4 flex flex-col justify-center">
+								<h2 class="font-medium text-gray-700 text-lg" style="color: #6E744C;">I Tråd Med Verden</h2>
+								<p class="font-serif text-gray-500 text-sm sm:text-xs mt-2" style="line-height: 2;">I denne webfeature var formålet at udvikle en digital løsning for den socialøkonomiske virksomhed I Tråd Med Verden (ITMV). Opgaven bestod i at designe en webfeature og digitalt indhold til både deres website og sociale medier. Formålet var at skabe engagement og øge antallet af private donorer og virksomheder, der støtter ITMV’s cirkulære produktion af kasserede tekstiler.</p>
+								<div class="flex justify-center mt-10">
+									<a href="https://itmv-webfeature.netlify.app/" target="_blank"
+									   class="px-7 py-1 md:px-20 md:py-1 font-light text-md rounded-full border border-[#6E744C] bg-[#EFF0E9] text-[#6E744C] text-center transition-colors duration-300 ease-in-out hover:bg-[#6E744C] hover:text-white">
+									   Se websitet
+									</a>
+								</div>
+							</div>
+						</div>
+		
+						<!-- Københavnerbilleder -->
+						<div class="swiper-slide bg-gray-50 w-full h-auto flex flex-col sm:flex-row rounded-md overflow-hidden">
+							<a href="https://lustrous-phoenix-b4be4a.netlify.app" target="_blank">
+								<div class="w-full sm:w-2/3 h-56 sm:h-auto overflow-hidden">
+									<img class="h-full w-full object-cover transform transition-transform duration-500 ease-in-out hover:scale-105" src="/src/assets/images/cph_billeder.png" alt="Forside af website om Bogen, Københavnerbilleder">
+								</a>
+								</div>
+							<div class="w-full sm:w-1/3 p-4 flex flex-col justify-center">
+								<h2 class="font-medium text-gray-700 text-lg" style="color: #6E744C;">Københavnerbilleder</h2>
+								<p class="font-serif text-gray-500 text-sm sm:text-xs mt-2" style="line-height: 2;">Opgaven handlede om at udvikle et mikrosite for bogen Københavnerbilleder – en guide til hipsterfoto, udgivet af Forlaget Mellem Linjerne. Formålet var at markedsføre bogen og gøre det muligt for brugerne at købe den direkte på sitet. Mikrositet skulle være en one-pager, der præsenterede bogens indhold, billeder og anmeldelser, og vi skulle kode sitet med Tailwind, som var et helt nyt værktøj for os.</p>
+								<div class="flex justify-center mt-10">
+									<a href="https://lustrous-phoenix-b4be4a.netlify.app" target="_blank"
+									   class="px-7 py-1 md:px-20 md:py-1 font-light text-md rounded-full border border-[#6E744C] bg-[#EFF0E9] text-[#6E744C] text-center transition-colors duration-300 ease-in-out hover:bg-[#6E744C] hover:text-white">
+									   Se websitet
+									</a>
+								</div>
+							</div>
+						</div>
+		
+					</div>
+		
+					<!-- Navigation og pagination -->
+					<div class="swiper-pagination"></div>
+					<div class="swiper-button-next absolute right-4 top-1/2 transform -translate-y-1/2"></div>
+					<div class="swiper-button-prev absolute left-4 top-1/2 transform -translate-y-1/2"></div>
+				</div>
+			</div>
+		</section>
+
+		<section class="py-10 md:py-16">
+			<div class="container max-w-screen-xl mx-auto px-4 sm:px-2">
+		
+				<h1 class="font-medium text-gray-700 text-3xl md:text-4xl mb-5" style="color: #6E744C;">Kom i kontakt med mig</h1>
+		
+				<p class="font-serif text-gray-500 text-xs md:text-base sm:text-sm mb-10 md:mb-20 sm:w-full md:w-3/4 lg:w-[40rem]">
+					Hvis I har lyst til at høre mere om mig, og eventuelt har en ledig praktikplads, er I meget velkomne til at kontakte mig, så jeg kan få mulighed for at afprøve mine evner i praksis.
+				</p>
+		
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+					
+					<!-- LinkedIn Kontakt -->
+					<div class="bg-gray-50 px-8 py-10 rounded-md">
+						<div class="w-20 py-6 flex justify-center bg-gray-100 rounded-md mb-4">
+							<img class="h-10 w-10" src="/src/assets/images/linkedin.svg" alt="LinkedIn ikon">
+						</div>
+		
+						<p class="font-serif text-gray-500 text-md sm:text-sm mb-4 mt-10">Connect med mig på LinkedIn:</p>
+						<h6 class="font-sans text-white font-thin text-sm md:text-normal" style="color: #454543;">
+							<a href="https://www.linkedin.com/in/mathilde-brandt-943082159" target="_blank"class="px-8 py-1 md:px-20 md:py-1 font-light text-md rounded-full border border-[#6E744C] bg-[#EFF0E9] text-[#6E744C] text-center transition-colors duration-300 ease-in-out hover:bg-[#6E744C] hover:text-white">Connect her</a>
+						</h6>
+					</div>
+		
+					<!-- E-mail Kontakt -->
+					<div class="bg-gray-50 px-8 py-10 rounded-md">
+						<div class="w-20 py-6 flex justify-center bg-gray-100 rounded-md mb-4">
+							<img class="h-10 w-10" src="/src/assets/images/mail.svg" alt="E-mail ikon">
+						</div>
+		
+						<p class="font-serif text-gray-500 text-md sm:text-sm mb-4 mt-10">Skriv en e-mail til mig på:</p>
+						<h6 class="font-serif text-white text-normal md:text-normal" style="color: #454543;">
+							<a href="mailto:MathildeBrandt1907@gmail.com" style="color: #454543; text-decoration: none;">
+								MathildeBrandt1907@gmail.com
+							</a>
+						</h6>
+					</div>
+		
+					<!-- Telefon Kontakt -->
+					<div class="bg-gray-50 px-8 py-10 rounded-md">
+						<div class="w-20 py-6 flex justify-center bg-gray-100 rounded-md mb-4">
+							<img class="h-10 w-10" src="/src/assets/images/telefon.svg" alt="Telefon ikon">
+						</div>
+		
+						<p class="font-serif text-gray-500 text-md sm:text-sm mb-4 mt-10">Kontakt mig på telefon:</p>
+						<h6 class="font-serif text-white text-normal md:text-normal" style="color: #454543;">
+							<a href="tel:+4542439619" style="color: #454543; text-decoration: none;">
+								+45 42 43 96 19
+							</a>
+						</h6>
+					</div>
+		
+				</div>
+			</div>
+		</section>
+
+		<footer class="py-10 md:py-16 mb-3 md:mb-6 lg:mb-6">
+			<div class="container max-w-screen-xl mx-auto px-4">
+				<section class="py-10 md:py-16">
+					<div class="container max-w-screen-xl mx-auto px-4 relative">
+						
+						<div class="absolute -left-24 right-[41.5rem] top-3 h-px hidden lg:block" style="background-color: #6E744C"></div>
+						<div class="absolute left-[41.5rem] -right-24 top-3 h-px hidden lg:block" style="background-color: #6E744C"></div>
+						
+						<nav class="relative flex items-center justify-center mb-2">
+							<img class="h-20 w-20 border rounded-full p-2 z-10 -mt-7" style="border-color: #6E744C" src="/src/assets/images/header-logo.png" alt="Logo">
+						</nav>
+					</div>
+		
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10 text-center md:text-left">
+
+						<div class="contact-info mx-auto md:mx-0">
+							<h4 class="text-base font-semibold uppercase" style="color: #6E744C;">Øvrige informationer</h4>
+							<div class="font-light font-serif text-gray-500 text-xs mt-4" style="line-height: 2;">
+								<p>Mathilde Brandt</p>
+								<p>Amagerfælledvej 172, 4.5</p>
+								<p>2300 København S</p>
+								<p>+45 42 43 96 19</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="relative text-center lg:text-left mt-10 text-sm font-normal uppercase" style="color: #6E744C;">
+						<span>BrandbyBrandt.dk</span>
+					</div>
+		
+				</section>
+			</div>
+		</footer>
+
+		<a href="#" id="scrollTopBtn" class="scroll-to-top hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M16.707 10.707a1 1 0 01-1.414 0L10 5.414 4.707 10.707a1 1 0 11-1.414-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 010 1.414z" clip-rule="evenodd" />
+    </svg>
+</a>
+
+		<script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+
+	   <script>
+		document.addEventListener("DOMContentLoaded", function() {
+			var swiper = new Swiper('.swiper-container', {
+				slidesPerView: 1,
+				spaceBetween: 20,
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+				},
+			});
+		});
+		</script>
+
+		<script>
+		window.onscroll = function () {
+			let scrollTopBtn = document.getElementById("scrollTopBtn");
+			if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+				scrollTopBtn.classList.remove("hidden");
+			} else {
+				scrollTopBtn.classList.add("hidden");
+			}
+		};
+		
+		// Scroll til toppen af siden, når man klikker på pilen
+		document.getElementById("scrollTopBtn").addEventListener("click", function (e) {
+			e.preventDefault();
+			window.scrollTo({
+				top: 0,
+				behavior: "smooth"
+			});
+		});
+	</script>
+
+	</body>
+	</html>
