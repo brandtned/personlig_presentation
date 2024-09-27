@@ -1,3 +1,21 @@
+---
+import { Image } from "astro:assets";
+import cph_billeder from "/public/cph_billeder.png";
+import design from "public/design.svg";
+import digital_skrald from "public/digital_skraldedag.png";
+import favicon from "/public/favicon.svg";
+import figma from "/public/figma.svg";
+import header from "/public/header-logo.png";
+import ITMV from "/public/ITMV.png";
+import kode from "/public/kode_ikon.svg";
+import linkedin from "/public/linkedin.svg";
+import mail from "/public/mail.svg";
+import online_test from "/public/online-test.svg";
+import Per from "/public/Per_Lunde.png";
+import profil from "/public/profilbillede.png";
+import telefon from "/public/telefon.svg";
+---
+
 <!DOCTYPE html>
 <html lang="da">
 
@@ -6,7 +24,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-	<link rel="icon" href="/public/header-logo.png" type="BB logo">
+	<link rel="icon" href={favicon.src} type="BB logo">
 	<title>Mathilde Brandts portfolio</title>
 	
 	<style>
@@ -92,13 +110,14 @@
 
         <!-- Logo -->
         <nav class="relative flex items-center justify-center mb-20 md:mb-40">
-            <img class="h-20 w-20 border rounded-full p-2 z-10 -mt-7" style="border-color: #6E744C;" src="/public/header-logo.png" alt="Logo">
+            <img class="h-20 w-20 border rounded-full p-2 z-10 -mt-7" style="border-color: #6E744C;" src={header.src} alt="Logo">
+        </nav>
         </nav>
 
         <div class="text-center">
             <!-- Profilbillede (gøres mindre på små skærme) -->
 			<div class="flex justify-center md:justify-end mb-16 mr-10">
-				<img class="h-48 w-48 md:h-96 md:w-96 -mt-2 rounded-md" src="/public/profilbillede.png" alt="Image">
+				<img class="h-48 w-48 md:h-96 md:w-96 -mt-2 rounded-md" src={profil.src} alt="Image">
 			</div>
 
             <!-- Tekstindhold -->
@@ -162,7 +181,7 @@
                     <div class="space-y-24">
 
                         <div class="flex space-x-6">
-							<img src="/public/design.svg" alt="grafisk design ikon" class="w-11 h-11 mt-5" />
+							<img src={design.src} alt="grafisk design ikon" class="w-11 h-11 mt-5" />
 							<span class="w-28 h-0.5 bg-gray-300 mt-5"></span>
 							<div>
 								<h1 class="font-normal text-gray-700 text-3xl md:text-4xl mb-5" style="color: #6E744C;">Grafisk Design</h1>
@@ -175,7 +194,7 @@
 						</div>
                         
 						<div class="flex space-x-6">
-							<img src="/public/kode_ikon.svg" alt="grafisk design ikon" class="w-11 h-11 mt-5" />
+							<img src={kode.src} alt="grafisk design ikon" class="w-11 h-11 mt-5" />
 							<span class="w-28 h-0.5 bg-gray-300 mt-5"></span>
 							<div>
 								<h1 class="font-normal text-gray-700 text-3xl md:text-4xl mb-5" style="color: #6E744C;">Webdesign & Frontend Udvikling</h1>
@@ -191,7 +210,7 @@
 						</div>
 
 						<div class="flex space-x-6">
-							<img src="/public/online-test.svg" alt="UX/UI design ikon" class="w-11 h-11 mt-5" />
+							<img src={online_test.src} alt="UX/UI design ikon" class="w-11 h-11 mt-5" />
 							<span class="w-28 h-0.5 bg-gray-300 mt-5"></span>
 						<div>
 							<h1 class="font-normal text-gray-700 text-3xl md:text-4xl mb-5" style="color: #6E744C;">UX/UI Design</h1>
@@ -268,7 +287,7 @@
 						<div class="swiper-slide bg-gray-50 w-full h-auto flex flex-col sm:flex-row rounded-md overflow-hidden">
 							<a href="https://digitalskraldedaggr4.netlify.app/" target="_blank">
 							<div class="w-full sm:w-2/3 h-56 sm:h-auto overflow-hidden">
-								<img class="h-full w-full object-cover transform transition-transform duration-500 ease-in-out hover:scale-105" src="/public/digital_skraldedag.png" alt="Forside af website om Digital Cleaunp Day">
+								<img class="h-full w-full object-cover transform transition-transform duration-500 ease-in-out hover:scale-105" src={digital_skrald.src} alt="Forside af website om Digital Cleaunp Day">
 							</a>
 							</div>
 							<div class="w-full sm:w-1/3 p-4 flex flex-col justify-center">
@@ -287,7 +306,7 @@
 						<div class="swiper-slide bg-gray-50 w-full h-auto flex flex-col sm:flex-row rounded-md overflow-hidden">
 							<a href="https://nonsite.netlify.app/" target="_blank">
 							<div class="w-full sm:w-2/3 h-56 sm:h-auto overflow-hidden">
-								<img class="h-full w-full object-cover transform transition-transform duration-500 ease-in-out hover:scale-105" src="/public/Per_Lunde.png" alt="Forside af website om kunstner Per Lunde Jørgensen">
+								<img class="h-full w-full object-cover transform transition-transform duration-500 ease-in-out hover:scale-105" src={Per.src} alt="Forside af website om kunstner Per Lunde Jørgensen">
 							</a>
 							</div>
 							<div class="w-full sm:w-1/3 p-4 flex flex-col justify-center">
@@ -306,7 +325,7 @@
 						<div class="swiper-slide bg-gray-50 w-full h-auto flex flex-col sm:flex-row rounded-md overflow-hidden">
 							<a href="https://itmv-webfeature.netlify.app/" target="_blank">
 							<div class="w-full sm:w-2/3 h-56 sm:h-auto overflow-hidden">
-								<img class="h-full w-full object-cover transform transition-transform duration-500 ease-in-out hover:scale-105" src="/public/ITMV.png" alt="Forside af website om ITMV">
+								<img class="h-full w-full object-cover transform transition-transform duration-500 ease-in-out hover:scale-105" src={ITMV.src} alt="Forside af website om ITMV">
 							</a>
 							</div>
 							<div class="w-full sm:w-1/3 p-4 flex flex-col justify-center">
@@ -325,7 +344,7 @@
 						<div class="swiper-slide bg-gray-50 w-full h-auto flex flex-col sm:flex-row rounded-md overflow-hidden">
 							<a href="https://lustrous-phoenix-b4be4a.netlify.app" target="_blank">
 								<div class="w-full sm:w-2/3 h-56 sm:h-auto overflow-hidden">
-									<img class="h-full w-full object-cover transform transition-transform duration-500 ease-in-out hover:scale-105" src="/public/cph_billeder.png" alt="Forside af website om Bogen, Københavnerbilleder">
+									<img class="h-full w-full object-cover transform transition-transform duration-500 ease-in-out hover:scale-105" src={cph_billeder.src} alt="Forside af website om Bogen, Københavnerbilleder">
 								</a>
 								</div>
 							<div class="w-full sm:w-1/3 p-4 flex flex-col justify-center">
@@ -364,7 +383,7 @@
 					<!-- LinkedIn Kontakt -->
 					<div class="bg-gray-50 px-8 py-10 rounded-md">
 						<div class="w-20 py-6 flex justify-center bg-gray-100 rounded-md mb-4">
-							<img class="h-10 w-10" src="/public/linkedin.svg" alt="LinkedIn ikon">
+							<img class="h-10 w-10" src={linkedin.src} alt="LinkedIn ikon">
 						</div>
 		
 						<p class="font-serif text-gray-500 text-md sm:text-sm mb-4 mt-10">Connect med mig på LinkedIn:</p>
@@ -376,7 +395,7 @@
 					<!-- E-mail Kontakt -->
 					<div class="bg-gray-50 px-8 py-10 rounded-md">
 						<div class="w-20 py-6 flex justify-center bg-gray-100 rounded-md mb-4">
-							<img class="h-10 w-10" src="/public/mail.svg" alt="E-mail ikon">
+							<img class="h-10 w-10" src={mail.src} alt="E-mail ikon">
 						</div>
 		
 						<p class="font-serif text-gray-500 text-md sm:text-sm mb-4 mt-10">Skriv en e-mail til mig på:</p>
@@ -390,7 +409,7 @@
 					<!-- Telefon Kontakt -->
 					<div class="bg-gray-50 px-8 py-10 rounded-md">
 						<div class="w-20 py-6 flex justify-center bg-gray-100 rounded-md mb-4">
-							<img class="h-10 w-10" src="/public/telefon.svg" alt="Telefon ikon">
+							<img class="h-10 w-10" src={telefon.src} alt="Telefon ikon">
 						</div>
 		
 						<p class="font-serif text-gray-500 text-md sm:text-sm mb-4 mt-10">Kontakt mig på telefon:</p>
@@ -414,7 +433,7 @@
 						<div class="absolute left-[41.5rem] -right-24 top-3 h-px hidden lg:block" style="background-color: #6E744C"></div>
 						
 						<nav class="relative flex items-center justify-center mb-2">
-							<img class="h-20 w-20 border rounded-full p-2 z-10 -mt-7" style="border-color: #6E744C" src="/public/header-logo.png" alt="Logo">
+							<img class="h-20 w-20 border rounded-full p-2 z-10 -mt-7" style="border-color: #6E744C" src={header.src} alt="Logo">
 						</nav>
 					</div>
 		
