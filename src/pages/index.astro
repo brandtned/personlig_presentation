@@ -81,6 +81,7 @@ import telefon from '/public/telefon.svg';
 </style>
 </head>
 
+<header>
 <section class="py-10 md:py-16">
     <div class="container max-w-screen-xl mx-auto px-4 relative">
         <!-- Tekst over den vandrette streg (skjult på små skærme) -->
@@ -94,7 +95,7 @@ import telefon from '/public/telefon.svg';
 
         <!-- CV-knap (skjult på små skærme) -->
         <div class="hidden md:block absolute right-6 top-[-2.5rem] text-sm font-normal uppercase" style="color: #6E744C;">
-            <button class="px-10 py-1 md:px-20 md:py-2 font-light md:font-light text-white text-md rounded-full transition ease-linear duration-500" style="background-color: #6E744C;" onmouseover="this.style.backgroundColor='#A0A96E'" onmouseout="this.style.backgroundColor='#6E744C'">Se mit CV</button>
+            <a href="/CV" class="px-10 py-1 md:px-20 md:py-2 font-light md:font-light text-white text-md rounded-full transition ease-linear duration-500" style="background-color: #6E744C;" onmouseover="this.style.backgroundColor='#A0A96E'" onmouseout="this.style.backgroundColor='#6E744C'">Se mit CV</a>
         </div>
 
         <div class="hidden md:block absolute right-96 top-[-2rem] text-sm font-normal uppercase" style="color: #6E744C;">
@@ -106,20 +107,25 @@ import telefon from '/public/telefon.svg';
         <div class="hidden md:block absolute left-[42.5rem] -right-20 top-3 h-px" style="background-color: #6E744C;"></div>
 
         <!-- Logo -->
-        <nav class="relative flex items-center justify-center mb-20 md:mb-40">
+        <nav class="relative flex items-center justify-center mb-20 md:mb-12">
             <img class="h-20 w-20 border rounded-full p-2 z-10 -mt-7" style="border-color: #6E744C;" src={header.src} alt="Logo">
         </nav>
-        </nav>
+    </header>
 
+<body>
+
+<section class="py-2 md:py-10"> <!-- Reducer padding på sektionen -->
+    <div class="container max-w-screen-xl mx-auto px-4 relative">
         <div class="text-center">
+
             <!-- Profilbillede (gøres mindre på små skærme) -->
-			<div class="flex justify-center md:justify-end mb-16 mr-10">
-				<img class="h-48 w-48 md:h-96 md:w-96 -mt-2 rounded-md" src={profil.src} alt="Image">
-			</div>
+            <div class="flex justify-center md:justify-end mb-16 mr-10">
+                <img class="h-48 w-48 md:h-96 md:w-96 -mt-10 md:-mt-20 rounded-md" src={profil.src} alt="Image"> <!-- Juster margin-top -->
+            </div>
 
             <!-- Tekstindhold -->
-            <div class="flex justify-center md:justify-start -mt-10 md:-mt-80">
-                <h6 class="font-serif text-white text-lg md:text-2xl uppercase mb-10" style="color: #4d4d4b;">Mathilde Brandt</h6>
+            <div class="flex justify-center md:justify-start -mt-10 md:-mt-60"> <!-- Juster margin-top -->
+                <h6 class="font-serif text-white text-lg md:text-2xl uppercase mb-10" style="color: #767673;">Mathilde Brandt</h6>
             </div>
 
             <div class="flex justify-center md:justify-start">
@@ -130,11 +136,11 @@ import telefon from '/public/telefon.svg';
                 <h1 class="font-normal text-gray-900 text-3xl md:text-7xl leading-none -mt-2 md:-mt-10 mb-4 md:mb-8" style="color: #6E744C;">studerende</h1>
             </div>
 
-			<div class="flex justify-center md:justify-start text-center md:text-left">
-				<p class="font-normal font-serif text-gray-600 md:text-base sm:text-sm mb-8 md:mb-8 sm:w-full md:w-3/4 lg:w-[50rem]" style="color: #454543;">
-					Jeg brænder for at udvikle brugervenlige digitale løsninger, og værdsætter hele processen – fra research til det færdige, testede produkt. Jeg håber at kunne få endnu mere erfaring hos jer.
-				</p>
-			</div>
+            <div class="flex justify-center md:justify-start text-center md:text-left">
+                <p class="font-normal font-serif md:text-base sm:text-sm mb-8 md:mb-8 sm:w-full md:w-3/4 lg:w-[50rem] text-gray-500">
+                    Jeg brænder for at udvikle brugervenlige digitale løsninger, og værdsætter hele processen – fra research til det færdige, testede produkt. Jeg håber at kunne få endnu mere erfaring hos jer.
+                </p>
+            </div>
 
             <!-- Connect med mig knap -->
             <div class="flex justify-center md:justify-start">
@@ -420,6 +426,7 @@ import telefon from '/public/telefon.svg';
 				</div>
 			</div>
 		</section>
+	</body>
 
 		<footer class="py-10 md:py-16 mb-3 md:mb-6 lg:mb-6">
 			<div class="container max-w-screen-xl mx-auto px-4">

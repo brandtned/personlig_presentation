@@ -1,0 +1,288 @@
+---
+import arbejde from '/public/arbejde.svg';
+import uddannelse from '/public/uddannelse.svg';
+import header from '/public/header-logo.png';
+---
+
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="/public/header-logo.png" type="image/png">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+	<title>Mathilde Brandts portfolio</title>
+	
+	<style>
+     
+  body {
+    overflow-x: hidden;
+	background-color: #EFF0E9;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #6E744C;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.scroll-to-top.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.scroll-to-top:hover {
+    background-color: #555;
+}
+
+.scroll-to-top svg {
+    display: block;
+}
+
+</style>
+</head>
+
+<header>
+
+<section class="py-10 md:py-16">
+    <div class="container max-w-screen-xl mx-auto px-4 relative">
+        <!-- Tekst over den vandrette streg (skjult på små skærme) -->
+        <div class="hidden md:block absolute left-20 top-[-2rem] text-sm font-normal uppercase" style="color: #6E744C;">
+            <span>Detaljeorienteret</span>
+        </div>
+
+        <div class="hidden md:block absolute left-96 top-[-2rem] text-sm font-normal uppercase" style="color: #6E744C;">
+            <span>Nysgerrig</span>
+        </div>
+
+        <!-- CV-knap (skjult på små skærme) -->
+        <div class="hidden md:block absolute right-6 top-[-2rem] text-sm font-normal uppercase" style="color: #6E744C;">
+            <a href="/#" class="px-8 py-1 md:px-16 md:py-2 font-light md:font-light text-white text-md rounded-full transition ease-linear duration-500" style="background-color: #6E744C;" onmouseover="this.style.backgroundColor='#A0A96E'" onmouseout="this.style.backgroundColor='#6E744C'">Se min portfolio</a>
+        </div>
+
+        <div class="hidden md:block absolute right-96 top-[-2rem] text-sm font-normal uppercase" style="color: #6E744C;">
+            <span>Engageret</span>
+        </div>
+
+        <!-- Vandrette streger (skjult på små skærme) -->
+        <div class="hidden md:block absolute -left-20 right-[42.5rem] top-3 h-px" style="background-color: #6E744C;"></div>
+        <div class="hidden md:block absolute left-[42.5rem] -right-20 top-3 h-px" style="background-color: #6E744C;"></div>
+
+        <!-- Logo -->
+        <nav class="relative flex items-center justify-center mb-20 md:mb-40">
+            <img class="h-20 w-20 border rounded-full p-2 z-10 -mt-7" style="border-color: #6E744C;" src={header.src} alt="Logo">
+        </nav>
+        </nav>
+    </div>
+</section>
+
+</header>
+
+<body>
+
+<section class="py-10 md:py-16">
+
+    <div class="container max-w-screen-xl mx-auto px-4">
+
+        <div class="-mt-48 lg:-mb-96">
+            <h1 class="font-normal text-gray-900 text-3xl md:text-7xl leading-none mb-2 md:mb-18" style="color: #6E744C;">Mit CV</h1>
+        </div>
+        
+
+    </div>
+
+</section>
+
+<section class="py-10 md:py-16 -mt-20">
+    <div class="container max-w-screen-xl mx-auto px-4">
+        <div class="flex flex-col lg:flex-row justify-between">
+            <div class="mb-10 lg:mb-0">
+                <h1 class="font-medium text-gray-700 text-3xl md:text-4xl mb-5" style="color: #6E744C;">Erhvervserfaring</h1>
+                <p class="font-serif text-gray-500 text-xs md:text-base sm:text-sm mb-8 md:mb-8 sm:w-full md:w-3/4 lg:w-[25rem]" style="line-height:1.8;">Herunder har jeg fremhævet mine kvalifikationer og rangeret dem alt efter niveau.</p>
+            </div>
+
+            <div class="space-y-24">
+
+                <!-- Marketings studentermedhjælper Academic Books -->
+                <div class="bg-gray-50 px-8 py-10 rounded-md"> <!-- Bokse designet ligesom de uddannelsesbokse -->
+                    <div class="flex space-x-6 items-center mb-4">
+                        <img src={arbejde.src} alt="grafisk design ikon" class="w-11 h-11" />
+                        <div>
+                            <h4 class="font-medium text-gray-700 text-lg mb-2" style="color: #6E744C;">Marketingstudentermedhjælper i SoMe/ Web </h4>
+                            <h6 class="font-serif text-white text-sm" style="color: #454543;">Academic Books</h6>
+                            <p class="font-serif text-gray-500 text-sm mb-4 mt-2">Aug. 2023 - </p>
+                        </div>
+                    </div>
+                    <ul class="list-disc list-inside font-serif text-gray-500 text-xs md:text-base sm:text-sm">
+                        <li>Ansvarlig for administrationen af sociale medieplatforme </li>
+                        <li>Skaber indholdsrigt materiale til sociale medieplatforme og virksomhedens hjemmeside </li> 
+                        <li>Forbedrer brugeroplevelsen på virksomhedens hjemmeside </li>
+                        <li>Markedsfører virksomheden gennem oplæg på uddannelsessteder</li>
+                        <li>Design og udvikling af grafisk materiale til fysiske og digitale platforme</li>
+                    </ul>
+                </div>
+            
+                <!-- Studentermedhjælper Campus Carlsberg -->
+                <div class="bg-gray-50 px-8 py-10 rounded-md"> 
+                    <div class="flex space-x-6 items-center mb-4">
+                        <img src={arbejde.src} alt="Webdesign ikon" class="w-11 h-11" />
+                        <div>
+                            <h4 class="font-medium text-gray-700 text-lg mb-2" style="color: #6E744C;">Studentermedhjælper</h4>
+                            <h6 class="font-serif text-white text-sm" style="color: #454543;">Academic Books, Campus Carlsberg</h6>
+                            <p class="font-serif text-gray-500 text-sm mb-4 mt-2">Aug. 2021 -  </p>
+                        </div>
+                    </div>
+                    <ul class="list-disc list-inside font-serif text-gray-500 text-xs md:text-base sm:text-sm">
+                        <li>Erfaring med at yde god kundeservice og interagere med kunder</li>
+                        <li>Arbejdet tæt med kollegaer for at opnå fælles mål</li>
+                        <li>Erfaring med at være detaljeorienteret og sikre, at butikken er i orden</li>
+                        <li>Erfaring med teknologi og softwareprogrammer som f.eks. Viking og Schilling</li>
+                    </ul>
+                </div>
+            </div>
+        </div>   
+    </div>
+</section>
+
+<section class="py-10 md:py-16 mt-20">
+
+    <div class="container max-w-screen-xl mx-auto px-4">
+
+        <div class="flex flex-col lg:flex-row justify-between">
+
+            <div class="mb-10 lg:mb-0">
+                <h1 class="font-medium text-gray-700 text-3xl md:text-4xl mb-5" style="color: #6E744C;">Uddannelse</h1>
+                <p class="font-serif text-gray-500 text-xs md:text-base sm:text-sm mb-8 md:mb-8sm:w-full md:w-3/4 lg:w-[25rem]" style="line-height:1.8;">Herunder har jeg fremhævet mine kvalifikationer og rangeret dem alt efter niveau.</p>
+            </div>
+
+            <div class="space-y-24">
+
+                <!-- Multimediedesignstuderende -->
+                <div class="bg-gray-50 px-8 py-10 rounded-md">
+                    <div class="flex space-x-6 items-center mb-4">
+                        <img src={uddannelse.src} alt="grafisk design ikon" class="w-11 h-11" />
+                        <div>
+                            <h4 class="font-medium text-gray-700 text-lg mb-2" style="color: #6E744C;">Multimediedesignstuderende</h4>
+                            <h6 class="font-serif text-white text-sm" style="color: #454543;">Københavns Erhvervsakademi, KEA</h6>
+                            <p class="font-serif text-gray-500 text-sm mb-4 mt-2">Aug. 2023 - </p>
+                        </div>
+                    </div>
+                    <ul class="list-disc list-inside font-serif text-gray-500 text-xs md:text-base sm:text-sm">
+                        <li>Erfaring med at skabe visuelt attraktive og interaktive elementer</li>
+                        <li>Forståelse for grundlæggende designprincipper og deres anvendelse </li>
+                        <li>Kompetencer inden for programmering og implementering af HTML, CSS og Javascript</li>
+                        <li>Forståelse for principperne bag brugergrænseflader og brugeroplevelsesdesign</li>
+                            
+                    </ul>
+                </div>
+            
+                <!-- Lærerstuderende -->
+                <div class="bg-gray-50 px-8 py-10 rounded-md"> 
+                    <div class="flex space-x-6 items-center mb-4">
+                        <img src={uddannelse.src} alt="Webdesign ikon" class="w-11 h-11" />
+                        <div>
+                            <h4 class="font-medium text-gray-700 text-lg mb-2" style="color: #6E744C;">Lærerstuderende</h4>
+                            <h6 class="font-serif text-white text-sm" style="color: #454543;">Københavns Professionshøjskole, Campus Carlsberg</h6>
+                            <p class="font-serif text-gray-500 text-sm mb-4 mt-2">Aug. 2021 - aug. 2022</p>
+                        </div>
+                    </div>
+                    <ul class="list-disc list-inside font-serif text-gray-500 text-xs md:text-base sm:text-sm">
+                        <li>Brugt kommunikation som et vigtigt redskab, for at kommunikere effektivt med forskellige målgrupper</li>
+                        <li>Kreativitet ift. at ramme og appellere til den målgruppe jeg henvender mig til</li>
+                        <li>Erfaring med analytiske færdigheder i f.eks. en teksts betydning og budskab</li>
+                    </ul>
+                </div>
+            
+                <!-- STX -->
+                <div class="bg-gray-50 px-8 py-10 rounded-md"> 
+                    <div class="flex space-x-6 items-center mb-4">
+                        <img src={uddannelse.src} alt="UX/UI design ikon" class="w-11 h-11" />
+                        <div>
+                            <h4 class="font-medium text-gray-700 text-lg mb-2" style="color: #6E744C;">Gymnasiel uddannelse, STX</h4>
+                            <h6 class="font-serif text-white text-sm" style="color: #454543;">Midtsjællands Gymnasium afd. Haslev</h6>
+                            <p class="font-serif text-gray-500 text-sm mb-4 mt-2">Aug. 2017 - jun. 2020</p>
+                        </div>
+                    </div>
+                    <ul class="list-disc list-inside font-serif text-gray-500 text-xs md:text-base sm:text-sm">
+                        <li>Dansk A</li>
+                        <li>Engelsk A</li>
+                        <li>Tysk A</li>
+                        <li>Spansk A</li>
+                        <li>Historie A</li>
+                    </ul>
+                </div>
+            
+            </div>   
+</section>
+
+</body>
+
+<footer class="py-10 md:py-16 mb-3 md:mb-6 lg:mb-6">
+    <div class="container max-w-screen-xl mx-auto px-4">
+        <section class="py-10 md:py-16">
+            <div class="container max-w-screen-xl mx-auto px-4 relative">
+                
+                <div class="absolute -left-24 right-[41.5rem] top-3 h-px hidden lg:block" style="background-color: #6E744C"></div>
+                <div class="absolute left-[41.5rem] -right-24 top-3 h-px hidden lg:block" style="background-color: #6E744C"></div>
+                
+                <nav class="relative flex items-center justify-center mb-2">
+                    <img class="h-20 w-20 border rounded-full p-2 z-10 -mt-7" style="border-color: #6E744C" src={header.src} alt="Logo">
+                </nav>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10 text-center md:text-left">
+
+                <div class="contact-info mx-auto md:mx-0">
+                    <h4 class="text-base font-semibold uppercase" style="color: #6E744C;">Øvrige informationer</h4>
+                    <div class="font-light font-serif text-gray-500 text-xs mt-4" style="line-height: 2;">
+                        <p>Mathilde Brandt</p>
+                        <p>Amagerfælledvej 172, 4.5</p>
+                        <p>2300 København S</p>
+                        <p>+45 42 43 96 19</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative text-center lg:text-left mt-10 text-sm font-normal uppercase" style="color: #6E744C;">
+                <span>BrandbyBrandt.dk</span>
+            </div>
+
+        </section>
+    </div>
+</footer>
+
+<a href="#" id="scrollTopBtn" class="scroll-to-top hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M16.707 10.707a1 1 0 01-1.414 0L10 5.414 4.707 10.707a1 1 0 11-1.414-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 010 1.414z" clip-rule="evenodd" />
+    </svg>
+
+<script>
+    window.onscroll = function () {
+        let scrollTopBtn = document.getElementById("scrollTopBtn");
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollTopBtn.classList.remove("hidden");
+        } else {
+            scrollTopBtn.classList.add("hidden");
+        }
+    };
+    
+    // Scroll til toppen af siden, når man klikker på pilen
+    document.getElementById("scrollTopBtn").addEventListener("click", function (e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+</script>
+
+</body>
+</html>
